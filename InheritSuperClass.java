@@ -1,43 +1,44 @@
-class A
+class productA
 {
-    int i,j;
-    A()
+    productA()
     {
-        i=100;
-        j=200;
+        System.out.println("A's Default Constructer");
     }
-    void display()
+    productA(int no)
     {
-        System.out.println("A is Display");
+        System.out.println("A's Parametric Constructer "+no);
     }
 }
-class B extends A
+class productB extends productA
 {
-    int i,k;
-    B()
+    productB()
     {
-        i=300;
-        k=400;
+        System.out.println("B's Default Constructer");
     }
-    void display()
+    productB(int no)
     {
-        System.out.println("B is Display");
-    }
-    void display(int i,int j,int k)
-    {
-        System.out.println(i+" "+j+" "+k);
-        System.out.println(this.i+" "+this.k);
-        System.out.println(super.i+" "+super.j);
-        super.display();
-        display();
-
+        super(50);
+        System.out.println("B's Parametric Constructer "+no);
     }
 }
-class InheritSuperClass
+class productC extends productB
+{
+    productC()
+    {
+        System.out.println("C's Default Constructer");
+    }
+    productC(int no)
+    {
+        super(100);
+        System.out.println("C's Parametric Constructer "+no);
+    }
+}
+class inheritanceSuper
 {
     public static void main(String args[])
     {
-        B b=new B();
-        b.display(50,60,70);
+        //productC proC=new productC();
+        productC proC=new productC(150);
+
     }
 }
